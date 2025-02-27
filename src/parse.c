@@ -15,32 +15,36 @@
 int	count_numbers(int len, char **str)
 {
 	int	i;
+	int	j;
 	int count;
 
-	i = 0;
+	i = 1;
 	count = 0;
 	while (i < len)
 	{
-		while (*str[i])
+		j = 0;
+		while (str[i][j])
 		{
-			is_valid(*str[i]);
-			if (*str[i] && is_whitespace(*str[i]))
+			write(1, &str[i][j], 1);
+			ft_printf(": number\n");
+			is_valid(str[i][j]);
+			if (str[i][j] && is_whitespace(str[i][j]))
 			{
-				while (*str[i] && is_whitespace(*str[i]))
-					str[i]++;
+				while (str[i][j] && is_whitespace(str[i][j]))
+					j++;
 			}
-			if (*str[i] && (is_num(*str[i]) || is_sign(*str[i])))
+			if (str[i][j] && (is_num(str[i][j]) || is_sign(str[i][j])))
 			{
-				if (*str[i] && is_sign(*str[i]))
+				if (str[i][j] && is_sign(str[i][j]))
 				{
-					str[i]++;
-					if (!*str[i] || !is_num(*str[i]))
+					j++;
+					if (!str[i][j] || !is_num(str[i][j]))
 						ft_error();
 				}
 				count++;
-				str[i]++;
-				while (*str[i] && is_num(*str[i]))
-					str[i]++;
+				j++;
+				while (str[i][j] && is_num(str[i][j]))
+					j++;
 			}
 		}
 		i++;
@@ -54,7 +58,7 @@ int	*parse_input(int len, char **str)
 	int *arr;
 
 	count = count_numbers(len, str);
-	ft_printf("%d", count);
+	ft_printf("Count = %d\n", count);
 	arr = malloc(sizeof(int) * count);
 	return (arr);
 }
