@@ -80,7 +80,7 @@ char	*kindof_atol(int *arr, char *str, int pos)
 		ft_error_free(arr);
 	if (n <= -2147483648)
 		ft_error_free(arr);
-	arr[pos] = n;
+	arr[pos] = (int)n;
 	return (str);
 }
 
@@ -116,6 +116,8 @@ int	*parse_input(int len, char **str, int *count)
 	*count = count_total_numbers(len, str);
 	ft_printf("Count = %d\n", *count);
 	arr = malloc(sizeof(int) * *count);
+	if (!arr)
+		exit (1);
 	fill_arr(arr, str, len);
 	for(int i = 0; i < *count; i++)// DEBUG DELETE
 		ft_printf("Array [%d]: %d\n", i, arr[i]);// DEBUG DELETE

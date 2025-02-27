@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 21:51:09 by jterrada          #+#    #+#             */
-/*   Updated: 2025/02/27 23:52:56 by jterrada         ###   ########.fr       */
+/*   Created: 2025/02/27 23:43:21 by jterrada          #+#    #+#             */
+/*   Updated: 2025/02/27 23:55:33 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	ft_error(void)
+void swap(int *arr, int arr_l)
 {
-	ft_putstr("Error\n");
-	exit(1);
+	int temp;
+	
+	if (arr_l >= 2)
+	{
+		temp = arr[0];
+		arr[0] = arr[1];
+		arr[1] = temp;
+	}
 }
 
-void	ft_error_free(int *arr)
+void do_sa()
 {
-	free(arr);
-	ft_printf("Error free\n"); // DEBUUGGING DELETE
-	ft_error();
-}
-
-void	ft_error_free2(int *arr, int *arr2)
-{
-	free(arr);
-	free(arr2);
-	ft_printf("Error free2!\n"); // DEBUUGGING DELETE
-	ft_error();
+	
 }

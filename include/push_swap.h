@@ -6,7 +6,7 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:46:44 by jterrada          #+#    #+#             */
-/*   Updated: 2025/02/27 22:28:30 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/02/27 23:17:11 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,13 @@ int		is_sign(char c);
 void	is_valid(char c);
 int		is_num(char c);
 int		is_whitespace(char c);
+// algo_prep.c
+void	bubble_sort(int *arr2, int arr_l);
+void	algo_prep(int *arr, int *arr2, int arr_l);
+void	check_duplicates(int *arr, int *arr2, int arr_l);
+
 // errors.c
+void	ft_error_free2(int *arr, int *arr2);
 void	ft_error_free(int *arr);
 void	ft_error(void);
 
