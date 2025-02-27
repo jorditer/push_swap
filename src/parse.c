@@ -12,53 +12,112 @@
 
 #include "push_swap.h"
 
-int	count_numbers(int len, char **str)
+int	count_total_numbers(int len, char **str)
 {
-	int	i;
-	int	j;
-	int count;
+	int i = 1;
+	int total = 0;
 
-	i = 1;
-	count = 0;
 	while (i < len)
 	{
-		j = 0;
-		while (str[i][j])
+		count_str_numbers(&total, str[i]);
+		i++;
+	}
+	return total;
+}
+void	count_str_numbers(int *total, char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		is_valid(str[i]);
+		if (str[i] && is_whitespace(str[i]))
 		{
-			write(1, &str[i][j], 1);
-			ft_printf(": number\n");
-			is_valid(str[i][j]);
-			if (str[i][j] && is_whitespace(str[i][j]))
+			while (str[i] && is_whitespace(str[i]))
+				i++;
+		}
+		write(1, &str[i], 1);    // DEBUG DELETE
+		ft_printf(": number\n"); // DEBUG DELETE
+		if (str[i] && (is_num(str[i]) || is_sign(str[i])))
+		{
+			if (str[i] && is_sign(str[i]))
 			{
-				while (str[i][j] && is_whitespace(str[i][j]))
-					j++;
+				i++;
+				if (!str[i] || !is_num(str[i]))
+					ft_error();
 			}
-			if (str[i][j] && (is_num(str[i][j]) || is_sign(str[i][j])))
+			(*total)++;
+			i++;
+			while (str[i] && is_num(str[i]))
+				i++;
+			}
+	}
+}
+
+// -2147483648 +2147483648
+char	*kindof_atol(int *arr, char *str, int pos)
+{
+	long n;
+	int sign;
+
+	n = 0;
+	sign = 1;
+	if (is_sign(*str))
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while (*str && !is_whitespace(*str))
+	{
+		n = n * 10 + (*str - '0');
+		str++;
+	}
+	n *= sign;
+	ft_printf("Atol number = %d\n", n);
+	if (n >= 2147483647)
+		ft_error_free(arr);
+	if (n <= -2147483648)
+		ft_error_free(arr);
+	arr[pos] = n;
+	return (str);
+}
+
+void	fill_arr(int *arr, char **str, int len)
+{
+	int	i;
+	int pos;
+	char *s;
+
+	i = 1;
+	pos = 0;
+	while(i < len)
+	{
+		s = str[i];
+		while(*s)
+		{
+			while (is_whitespace(*s))
+				s++;
+			if (*s)
 			{
-				if (str[i][j] && is_sign(str[i][j]))
-				{
-					j++;
-					if (!str[i][j] || !is_num(str[i][j]))
-						ft_error();
-				}
-				count++;
-				j++;
-				while (str[i][j] && is_num(str[i][j]))
-					j++;
+				s = kindof_atol(arr, s, pos);
+				pos++;
 			}
 		}
 		i++;
 	}
-	return (count);
 }
 
-int	*parse_input(int len, char **str)
+int	*parse_input(int len, char **str, int *count)
 {
-	int	count;
 	int *arr;
 
-	count = count_numbers(len, str);
-	ft_printf("Count = %d\n", count);
-	arr = malloc(sizeof(int) * count);
+	*count = count_total_numbers(len, str);
+	ft_printf("Count = %d\n", *count);
+	arr = malloc(sizeof(int) * *count);
+	fill_arr(arr, str, len);
+	for(int i = 0; i < *count; i++)// DEBUG DELETE
+		ft_printf("Array [%d]: %d\n", i, arr[i]);// DEBUG DELETE
 	return (arr);
 }

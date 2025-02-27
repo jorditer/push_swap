@@ -6,7 +6,7 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:46:44 by jterrada          #+#    #+#             */
-/*   Updated: 2025/02/27 18:49:46 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:28:30 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,18 @@
 # include "../lib/Libft/headers/libft.h"
 
 // parse.c
-int		*parse_input(int len, char **str);
-int		count_numbers(int len, char **str);
+int		*parse_input(int len, char **str, int *count);
+int		count_total_numbers(int len, char **str);
+void	count_str_numbers(int *total, char *str);
+void	fill_arr(int *arr, char **str, int len);
+char	*kindof_atol(int *arr, char *str, int pos);
 // checks.c
 int		is_sign(char c);
 void	is_valid(char c);
 int		is_num(char c);
 int		is_whitespace(char c);
+// errors.c
+void	ft_error_free(int *arr);
 void	ft_error(void);
 
 #endif
