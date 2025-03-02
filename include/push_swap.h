@@ -6,7 +6,7 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:46:44 by jterrada          #+#    #+#             */
-/*   Updated: 2025/03/02 19:09:31 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/03/02 19:17:53 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ void	do_rrb(int *arr2, int arr2_l);
 void	do_rrr(int *arr, int *arr2, int arr_l, int arr2_l);
 // algorithm.c
 void	do_sorting(int **arr, int **arr2, int *arr_l, int *arr2_l);
+// algorithm_helpers.c
+int		count_max_bits(int max_n);
+int		is_sorted(int *arr, int arr_l);
 // void	do_mechanical_turk(int **arr, int **arr2, int *arr_l, int *arr2_l);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:45 by jterrada          #+#    #+#             */
-/*   Updated: 2025/03/02 19:05:32 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/03/02 19:23:56 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int argc, char **argv)
 	free(arr2);
 	arr2 = NULL;
 	arr2_l = 0;
-	// do_radix(&arr, &arr2, &arr_l, &arr2_l);
 	do_sorting(&arr, &arr2, &arr_l, &arr2_l);
 	free(arr);
 	free(arr2);

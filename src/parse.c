@@ -79,7 +79,7 @@ char	*kindof_atol(int *arr, char *str, int pos)
 		str++;
 	}
 	n *= sign;
-	if (n >= 2147483647 || n <= -2147483648 || (*str && !is_whitespace(*str)))
+	if (n > 2147483647 || n < -2147483648 || (*str && !is_whitespace(*str)))
 		ft_error_free(arr);
 	arr[pos] = (int)n;
 	return (str);
