@@ -6,22 +6,22 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 10:47:51 by jterrada          #+#    #+#             */
-/*   Updated: 2025/02/28 13:58:59 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:53:20 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rotate(int *arr, int arr_l)
+void	rotate(int *arr, int arr_l)
 {
-	int first_element;
-	int i;
-	
+	int	first_element;
+	int	i;
+
 	if (arr_l <= 1)
 		return ;
 	i = 0;
 	first_element = arr[0];
-	while(i < (arr_l - 1))
+	while (i < (arr_l - 1))
 	{
 		arr[i] = arr[i + 1];
 		i++;
@@ -29,19 +29,19 @@ void rotate(int *arr, int arr_l)
 	arr[arr_l - 1] = first_element;
 }
 
-void do_ra(int *arr, int arr_l)
+void	do_ra(int *arr, int arr_l)
 {
 	rotate(arr, arr_l);
 	ft_putstr("ra\n");
 }
 
-void do_rb(int *arr2, int arr2_l)
+void	do_rb(int *arr2, int arr2_l)
 {
 	rotate(arr2, arr2_l);
 	ft_putstr("rb\n");
 }
 
-void do_rr(int *arr, int *arr2, int arr_l, int arr2_l)
+void	do_rr(int *arr, int *arr2, int arr_l, int arr2_l)
 {
 	rotate(arr, arr_l);
 	rotate(arr2, arr2_l);

@@ -14,16 +14,19 @@
 
 int	count_total_numbers(int len, char **str)
 {
-	int i = 1;
-	int total = 0;
+	int	i;
+	int	total;
 
+	i = 1;
+	total = 0;
 	while (i < len)
 	{
 		count_str_numbers(&total, str[i]);
 		i++;
 	}
-	return total;
+	return (total);
 }
+
 void	count_str_numbers(int *total, char *str)
 {
 	int	i;
@@ -37,8 +40,6 @@ void	count_str_numbers(int *total, char *str)
 			while (str[i] && is_whitespace(str[i]))
 				i++;
 		}
-		write(1, &str[i], 1);    // DEBUG DELETE
-		ft_printf(": number\n"); // DEBUG DELETE
 		if (str[i] && (is_num(str[i]) || is_sign(str[i])))
 		{
 			if (str[i] && is_sign(str[i]))
@@ -51,51 +52,49 @@ void	count_str_numbers(int *total, char *str)
 			i++;
 			while (str[i] && is_num(str[i]))
 				i++;
-			}
+		}
 	}
 }
 
-// -2147483648 +2147483648
 char	*kindof_atol(int *arr, char *str, int pos)
 {
-	long n;
-	int sign;
+	int		i;
+	long	n;
+	int		sign;
 
+	i = 0;
 	n = 0;
 	sign = 1;
-	if (is_sign(*str))
+	if (is_sign(str[i]))
 	{
-		if (*str == '-')
+		if (str[i] == '-')
 			sign *= -1;
-		str++;
+		i++;
 	}
-	while (*str && !is_whitespace(*str))
+	while (str[i] && !is_whitespace(str[i]))
 	{
-		n = n * 10 + (*str - '0');
-		str++;
+		n = n * 10 + (str[i] - '0');
+		i++;
 	}
 	n *= sign;
-	ft_printf("Atol number = %d\n", n);
-	if (n >= 2147483647)
-		ft_error_free(arr);
-	if (n <= -2147483648)
+	if (n >= 2147483647 || n <= -2147483648 || !is_valid_sign_pos(str, i))
 		ft_error_free(arr);
 	arr[pos] = (int)n;
-	return (str);
+	return (&str[i]);
 }
 
 void	fill_arr(int *arr, char **str, int len)
 {
-	int	i;
-	int pos;
-	char *s;
+	int		i;
+	int		pos;
+	char	*s;
 
 	i = 1;
 	pos = 0;
-	while(i < len)
+	while (i < len)
 	{
 		s = str[i];
-		while(*s)
+		while (*s)
 		{
 			while (is_whitespace(*s))
 				s++;
@@ -111,15 +110,12 @@ void	fill_arr(int *arr, char **str, int len)
 
 int	*parse_input(int len, char **str, int *count)
 {
-	int *arr;
+	int	*arr;
 
 	*count = count_total_numbers(len, str);
-	ft_printf("Count = %d\n", *count);
 	arr = malloc(sizeof(int) * *count);
 	if (!arr)
 		exit (1);
 	fill_arr(arr, str, len);
-	for(int i = 0; i < *count; i++)// DEBUG DELETE
-		ft_printf("Array [%d]: %d\n", i, arr[i]);// DEBUG DELETE
 	return (arr);
 }

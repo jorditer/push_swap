@@ -6,7 +6,7 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 18:24:17 by jterrada          #+#    #+#             */
-/*   Updated: 2025/02/27 21:46:43 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:29:57 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,19 @@ void	is_valid(char c)
 {
 	if (!(is_whitespace(c) || is_num(c) || is_sign(c)))
 	{
-		// ft_printf("%d\n", c);	// DEBUGGING DELETE
 		ft_error();
+	}
+}
+
+void	check_args(int argc, char **argv)
+{
+	int i;
+
+	i = 0;
+	while (i < argc)
+	{
+		if (argv[i][0] == '\0')
+			ft_error();
+		i++;
 	}
 }

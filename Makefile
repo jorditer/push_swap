@@ -6,7 +6,7 @@
 #    By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/14 21:11:29 by jordi             #+#    #+#              #
-#    Updated: 2025/02/27 23:53:25 by jterrada         ###   ########.fr        #
+#    Updated: 2025/03/01 12:25:51 by jterrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT := ./lib/Libft
 NAME = push_swap
 DIR_SRC = src/
 LIBS = -L$(LIBFT) -lft
-SRC =  $(addprefix $(DIR_SRC), main.c checks.c parse.c errors.c algo_prep.c \
+SRC =  $(addprefix $(DIR_SRC), main.c checks.c parse.c errors.c algo_prep.c algorithm.c\
 		$(addprefix operations/, rotate.c push.c swap.c r_rotate.c))
 
 OBJ = $(patsubst src/%.c,bin/%.o,$(SRC))

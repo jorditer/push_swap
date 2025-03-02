@@ -6,7 +6,7 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 12:14:53 by jterrada          #+#    #+#             */
-/*   Updated: 2025/02/28 14:03:38 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/03/01 12:52:25 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	push(int **arr, int **arr2, int *arr_l, int *arr2_l)
 	(*arr2_l)++;
 }
 
-void do_pa(int **arr, int **arr2, int *arr_l, int *arr2_l)
+void	do_pa(int **arr, int **arr2, int *arr_l, int *arr2_l)
 {
 	push(arr2, arr, arr2_l, arr_l);
 	ft_putstr("pa\n");
 }
 
-void do_pb(int **arr, int **arr2, int *arr_l, int *arr2_l)
+void	do_pb(int **arr, int **arr2, int *arr_l, int *arr2_l)
 {
 	push(arr, arr2, arr_l, arr2_l);
 	ft_putstr("pb\n");
@@ -93,4 +93,5 @@ void do_pb(int **arr, int **arr2, int *arr_l, int *arr2_l)
 // 	free(arr);
 // 	free(arr2);
 // }
-//gcc -Wall -Wextra -Werror -g -I../../include push.c ../errors.c ../../lib/Libft/libft.a -o push_test
+//gcc -Wall -Wextra -Werror -g -I../../include push.c ../errors.c 
+//../../lib/Libft/libft.a -o push_test
