@@ -6,7 +6,7 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 11:42:21 by jterrada          #+#    #+#             */
-/*   Updated: 2025/03/02 19:26:39 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/03/02 21:35:12 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	do_sorting(int **arr, int **arr2, int *arr_l, int *arr2_l)
 
 	if (is_sorted(*arr, *arr_l))
 		return ;
-	if (*arr_l <= 5)
+	if (*arr_l <= 10)
 	{
 		if (*arr_l <= 3)
 			elements_to_keep = *arr_l;
