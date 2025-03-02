@@ -58,29 +58,31 @@ void	count_str_numbers(int *total, char *str)
 
 char	*kindof_atol(int *arr, char *str, int pos)
 {
-	int		i;
 	long	n;
 	int		sign;
+	char	*start;
 
-	i = 0;
+	start = str;
 	n = 0;
 	sign = 1;
-	if (is_sign(str[i]))
+	if (is_sign(*str))
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		if (str != start && !is_whitespace(*(str - 1)))
+			ft_error_free(arr);
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	while (str[i] && !is_whitespace(str[i]))
+	while (*str && is_num(*str))
 	{
-		n = n * 10 + (str[i] - '0');
-		i++;
+		n = n * 10 + (*str - '0');
+		str++;
 	}
 	n *= sign;
-	if (n >= 2147483647 || n <= -2147483648 || !is_valid_sign_pos(str, i))
+	if (n >= 2147483647 || n <= -2147483648 || (*str && !is_whitespace(*str)))
 		ft_error_free(arr);
 	arr[pos] = (int)n;
-	return (&str[i]);
+	return (str);
 }
 
 void	fill_arr(int *arr, char **str, int len)

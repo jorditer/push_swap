@@ -6,7 +6,7 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 11:42:21 by jterrada          #+#    #+#             */
-/*   Updated: 2025/03/01 12:55:07 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:26:46 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ int	count_max_bits(int max_n)
 	while ((max_n >> max_bits) != 0)
 		max_bits++;
 	return (max_bits);
+}
+
+int is_sorted(int *arr, int arr_l)
+{
+	int i;
+
+	i = 0;
+	while (i < (arr_l - 1))
+	{
+		if (arr[i] > arr[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 void	do_radix(int **arr, int **arr2, int *arr_l, int *arr2_l)

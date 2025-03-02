@@ -6,7 +6,7 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:46:44 by jterrada          #+#    #+#             */
-/*   Updated: 2025/03/02 12:40:09 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/03/02 13:06:05 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_error_free3(int *arr, int *arr2, int *arr3);
 void	ft_error_free2(int *arr, int *arr2);
 void	ft_error_free(int *arr);
 void	ft_error(void);
-int	is_valid_sign_pos(char *str, int pos);
+int		is_valid_sign_pos(char *str, int pos);
 // push.c
 void	do_pb(int **arr, int **arr2, int *arr_l, int *arr2_l);
 void	do_pa(int **arr, int **arr2, int *arr_l, int *arr2_l);

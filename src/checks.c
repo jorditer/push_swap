@@ -6,7 +6,7 @@
 /*   By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 18:24:17 by jterrada          #+#    #+#             */
-/*   Updated: 2025/03/01 13:29:57 by jterrada         ###   ########.fr       */
+/*   Updated: 2025/03/02 13:05:53 by jterrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	is_valid(char c)
 
 void	check_args(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < argc)
