@@ -6,12 +6,12 @@
 #    By: jterrada <jterrada@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/14 21:11:29 by jordi             #+#    #+#              #
-#    Updated: 2025/03/02 19:13:19 by jterrada         ###   ########.fr        #
+#    Updated: 2025/03/03 11:53:31 by jterrada         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CCFLAGS = -Wall -Wextra -Werror -g
+CC = gcc
+CCFLAGS = -Wall -Wextra -Werror
 LIBFT := ./lib/Libft
 NAME = push_swap
 DIR_SRC = src/
